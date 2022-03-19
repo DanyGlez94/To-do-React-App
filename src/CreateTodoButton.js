@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './CreateTodoButton.css'
 
-const CreateTodoButton = () => {
+const CreateTodoButton = (props) => {
     return (
-        <button>+</button>
-    )
+        <button className='CreateTodoButton'>+</button>
+    );
 }
 
 export { CreateTodoButton };
