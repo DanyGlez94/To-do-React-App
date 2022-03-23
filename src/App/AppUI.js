@@ -3,6 +3,7 @@ import { TodoContext } from "../TodoContext";
 import { TodoCounter } from "../TodoCounter";
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
+import { TodoForm } from "../TodoForm";
 import { TodoSearch } from "../TodoSearch";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
@@ -28,18 +29,18 @@ function AppUI() {
                 {(!loading && !searchedTodos.length) && <p>Crea tu primer TO-DO!</p>}
                 {searchedTodos.map(todo => (
                     <TodoItem 
-                    key={todo.text} 
-                    text={todo.text}
-                    completed={todo.completed}
-                    onComplete={() => completeTodo(todo.text)}
-                    onDelete={() => deleteTodo(todo.text)}
+                        key={todo.text} 
+                        text={todo.text}
+                        completed={todo.completed}
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
                     />
                 ))}
             </TodoList>
 
             {openModal && (
                 <Modal >
-                    <p>{searchedTodos[0]?.text}</p>
+                    <TodoForm />
                 </Modal>
             )}
 
