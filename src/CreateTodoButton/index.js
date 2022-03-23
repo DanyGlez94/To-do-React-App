@@ -1,16 +1,18 @@
-import React from 'react';
-import './CreateTodoButton.css'
+import React, { useContext } from 'react';
+import { TodoContext } from '../TodoContext';
+import './CreateTodoButton.css';
 
-const CreateTodoButton = (props) => {
-
-    const onClickButton = (msg) => {
-        alert(msg);
+const CreateTodoButton = () => {
+    const { openModal, setOpenModal } = useContext(TodoContext)
+    const onClickButton = () => {
+        // openModal ? setOpenModal(false) : setOpenModal(true); //Condicional ternario.
+        setOpenModal(!openModal) //Este hace lo mismo que el de arriba, pero más compacto.
     };
 
     return (
         <button 
             className='CreateTodoButton'
-            onClick={() => onClickButton('Aquí se debería abrir el modal')}
+            onClick={onClickButton}
         >
             +
         </button>
